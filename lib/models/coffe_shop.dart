@@ -1,6 +1,7 @@
 import 'package:cafe_flutter/models/coffee.dart';
+import 'package:flutter/material.dart';
 
-class CoffeShop {
+class CoffeShop extends ChangeNotifier {
   final List<Coffe> _shop = [
     Coffe(name: "Café Preto", price: "3.50", imagePath: "assets/img/black.png"),
     Coffe(name: "Café Latte", price: "5.50", imagePath: "assets/img/latte.png"),
@@ -14,12 +15,13 @@ class CoffeShop {
         imagePath: "assets/img/iced_coffe.png"),
   ];
 
-  List<Coffe> _userCart = [];
+  final List<Coffe> _userCart = [];
   List<Coffe> get coffeShop => _shop;
   List<Coffe> get userCart => _userCart;
 
   void addItemToCart(Coffe coffe) {
     _userCart.add(coffe);
+    notifyListeners();
   }
 
   void removeItemFromCart(Coffe coffe) {

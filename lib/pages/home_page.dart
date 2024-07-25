@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
 
 // paginas
 
-  final List<Widget> _pages = [ShopPage(), CartPage()];
+  final List<Widget> _pages = [const ShopPage(), const CartPage()];
 
   @override
   Widget build(BuildContext context) {
